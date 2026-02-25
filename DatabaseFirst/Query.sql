@@ -1,0 +1,16 @@
+﻿CREATE DATABASE CompanyDB;
+GO
+
+USE CompanyDB;
+
+CREATE TABLE Departments(
+    Id INT PRIMARY KEY IDENTITY,
+    Name NVARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Employees(
+    Id INT PRIMARY KEY IDENTITY,
+    Name NVARCHAR(100),
+    Salary DECIMAL(18,2),
+    DepartmentId INT FOREIGN KEY REFERENCES Departments(Id)
+);

@@ -16,8 +16,7 @@ namespace EFCode
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-        "Server=sqlserver;Database=EFCoreDemo;User Id=sa;Password=Your_password123;TrustServerCertificate=True;");
-
+        "Server=localhost,1433;Database=AppDb;User Id=sa;Password=YourStrong!Pass123;TrustServerCertificate=True;");
         }
     }
 }
