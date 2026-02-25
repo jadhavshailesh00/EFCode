@@ -1,0 +1,25 @@
+﻿version: '3.8'
+
+services:
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Your_password123
+    ports:
+      - "1433:1433"
+    networks:
+      - app-network
+
+  efcoreapp:
+    build: .
+    container_name: efcoreapp
+    depends_on:
+      - sqlserver
+    networks:
+      - app-network
+
+networks:
+  app-network:
